@@ -1,0 +1,430 @@
+:root {
+  --metro-editor: #1e1e1e;
+  --metro-sidebar: #252526;
+  --metro-titlebar: #3c3c3c;
+  --metro-input: #3c3c3c;
+  --metro-menu: #252526;
+  --metro-border: #454545;
+  --metro-divider: #333333;
+  --metro-text: #cccccc;
+  --metro-bright: #f0f0f0;
+  --metro-muted: #a0a0a0;
+  --metro-disabled: #858585;
+  --metro-hover: #2a2d2e;
+  --metro-selection: #094771;
+  --metro-selection-soft: #37373d;
+  --metro-blue: #007acc;
+  --metro-link: #4fc1ff;
+  --metro-cyan: #9cdcfe;
+  --metro-green: #b5cea8;
+  --metro-red: #f48771;
+  --metro-yellow: #dcdcaa;
+  --metro-orange: #ce9178;
+  --metro-purple: #c586c0;
+  color-scheme: dark;
+}
+html, html.nb-metro-theme body.NB-body-main.NB-dark {
+  background: var(--metro-editor) !important;
+  color: var(--metro-text) !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :where([class*="NB-"], .feed_title, .folder_title, .story_title, .story_date) {
+  text-shadow: none !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :where(button, input, select, textarea, [class*="NB-"]) {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+::selection { background: #264f78 !important; color: #ffffff !important; }
+* { scrollbar-width: thin; scrollbar-color: #5a5a5a transparent; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #5a5a5a99; border: 2px solid transparent; background-clip: padding-box; border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background-color: #797979; }
+::-webkit-scrollbar-corner { background: var(--metro-editor); }
+body :where(a, button, input, select, textarea, [role="button"], [tabindex]):focus-visible {
+  outline: 1px solid var(--metro-blue) !important;
+  outline-offset: 2px;
+}
+
+/* Explorer: account header, navigation, folders, subscriptions. */
+html.nb-metro-theme body.NB-body-main.NB-dark :is(#feed_list, #feed_list ul.folder, #feed_list .NB-root,
+ .NB-feeds-header-wrapper, .NB-feeds-header-container, .NB-feeds-header-user,
+ .NB-feedbar-options-container, .NB-feed-list, .NB-feedlist, .NB-sidebar) {
+  background-color: var(--metro-sidebar) !important;
+  color: var(--metro-text) !important;
+  border-color: var(--metro-divider) !important;
+  box-shadow: none !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feeds-header, .NB-feeds-header-user) {
+  background: var(--metro-sidebar) !important;
+  color: var(--metro-text) !important;
+  border-color: var(--metro-divider) !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feeds-header-title, .NB-feeds-header-username, .NB-feeds-header-user-name) {
+  color: var(--metro-bright) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feeds-header-count, .NB-feeds-header-counts, .NB-feeds-header-user-count) {
+  color: var(--metro-muted) !important;
+  font-variant-numeric: tabular-nums;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark #feed_list :is(.folder_title, .NB-folder-title) {
+  background: var(--metro-sidebar) !important;
+  color: var(--metro-text) !important;
+  border: 0 !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: .3px;
+  border-radius: 0 !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark #feed_list :is(li.feed, .NB-feeds-header) {
+  background: transparent !important;
+  border-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark #feed_list :is(li.feed, .folder_title, .NB-feeds-header):hover {
+  background: var(--metro-hover) !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark #feed_list :is(li.feed.NB-selected, li.feed.selected,
+ .NB-feeds-header.NB-selected, .folder_title.NB-selected) {
+  background: var(--metro-selection) !important;
+  box-shadow: inset 2px 0 var(--metro-blue) !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark #feed_list :is(.feed_title, .NB-feeds-header-title) {
+  color: var(--metro-text) !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark #feed_list :is(.NB-selected, .selected) .feed_title { color: #fff !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark #feed_list li.feed.NB-empty:not(.NB-selected) .feed_title { color: var(--metro-muted) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.feed_counts, .feed_counts_floater, .unread_count) {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  font-variant-numeric: tabular-nums;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark .unread_count { color: var(--metro-muted) !important; font-size: 11px !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark .unread_count_positive { color: var(--metro-green) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark .unread_count_negative { color: var(--metro-red) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark .unread_count_empty { display: none !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.folder_icon, .NB-folder-icon) { filter: grayscale(1) brightness(1.8) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feedbar-options, .NB-feeds-header .NB-icon) { color: var(--metro-text) !important; }
+
+/* Editor workspace and tab strip. Keep native reader layout and keyboard behavior. */
+html.nb-metro-theme body.NB-body-main.NB-dark :is(#story_titles, #feed_view, #story_pane, #content_pane,
+ .NB-story-pane, .NB-story-content-container, .NB-feed-stories,
+ .NB-river-stories, .NB-feed-story, .NB-story-content, .NB-feed-story-content,
+ .NB-feed-story-content-wrapper, .NB-story-titles, .NB-dashboard, .NB-account-wide) {
+  background-color: var(--metro-editor) !important;
+  color: var(--metro-text) !important;
+  border-color: var(--metro-divider) !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feedbar, .NB-feedbar-top, .NB-story-title-header,
+ .NB-story-titles-header, .NB-storytitles-header, .NB-feed-story-header,
+ .NB-feed-story-header-info, .NB-story-title-container, .NB-feedbar-options-container) {
+  background-color: var(--metro-sidebar) !important;
+  color: var(--metro-text) !important;
+  border-color: var(--metro-divider) !important;
+  box-shadow: none !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feedbar-title, .NB-feed-story-title, .NB-story-title .story_title,
+ .NB-storytitles-title, .NB-story-title-title) { color: var(--metro-bright) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-story-title, .NB-story-title-list, .NB-story-title-grid) {
+  background: var(--metro-editor) !important;
+  border-color: var(--metro-divider) !important;
+  box-shadow: none !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark .NB-story-title:hover:not(.NB-selected) { background: var(--metro-hover) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark .NB-story-title.NB-selected {
+  background: var(--metro-selection) !important;
+  border-color: var(--metro-selection) !important;
+  box-shadow: inset 2px 0 var(--metro-blue) !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark .NB-story-title.read:not(.NB-selected) :is(.story_title, .NB-storytitles-title) { color: var(--metro-muted) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.story_date, .story_author, .NB-storytitles-author, .NB-storytitles-date,
+ .NB-storytitles-content-preview, .NB-feed-story-date, .NB-feed-story-author,
+ .NB-feed-story-feed, .NB-story-title-feed, .NB-feed-story-stat, .NB-feed-story-tag) {
+  color: var(--metro-muted) !important;
+  text-shadow: none !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story-title, .NB-feed-story-title a) {
+  color: var(--metro-bright) !important;
+  font-weight: 600 !important;
+  letter-spacing: -.3px;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-storytitles-title, .story_title) { font-weight: 500 !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story, .NB-feed-story-header, .NB-feed-story-content-wrapper) { box-shadow: none !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-story-title-indicator, .NB-story-title-indicator-neutral) { background-color: var(--metro-blue) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark .NB-story-title-indicator-positive { background-color: #608b4e !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark .NB-story-title-indicator-negative { background-color: var(--metro-red) !important; }
+
+/* Article rendering: paper, links, quotes, tables, code and syntax highlighting. */
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story-content, .NB-story-content) { line-height: 1.65; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story-content, .NB-story-content) :where(p, div, span, section, article, td, th, li, ul, ol) {
+  background-color: transparent !important;
+  color: var(--metro-text) !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story-content, .NB-story-content) :is(h1,h2,h3,h4,h5,h6,strong,b) { color: var(--metro-bright) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story-content, .NB-story-content) a { color: var(--metro-link) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story-content, .NB-story-content) a:hover { color: var(--metro-cyan) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story-content, .NB-story-content) blockquote {
+  background: #252526 !important;
+  border-left: 3px solid var(--metro-blue) !important;
+  color: var(--metro-muted) !important;
+  padding: 8px 16px !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story-content, .NB-story-content) :is(pre,code,kbd,samp) {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace !important;
+  background-color: #252526 !important;
+  color: #d4d4d4 !important;
+  border-color: var(--metro-border) !important;
+  border-radius: 3px;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story-content, .NB-story-content) pre { padding: 16px !important; overflow-x: auto; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story-content, .NB-story-content) :is(td,th) { border-color: var(--metro-border) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story-content, .NB-story-content) th { background: var(--metro-sidebar) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story-content, .NB-story-content) hr { border-color: var(--metro-border) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story-content, .NB-story-content) :is(ins,mark) { background: #264f38 !important; color: var(--metro-green) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story-content, .NB-story-content) del { background: #5a1d1d !important; color: var(--metro-red) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story-content, .NB-story-content) :is(.hljs-keyword,.token.keyword,.k,.kd) { color: #569cd6 !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story-content, .NB-story-content) :is(.hljs-string,.token.string,.s,.s1,.s2) { color: var(--metro-orange) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story-content, .NB-story-content) :is(.hljs-comment,.token.comment,.c,.c1,.cm) { color: #6a9955 !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story-content, .NB-story-content) :is(.hljs-number,.token.number,.m,.mi,.mf) { color: var(--metro-green) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story-content, .NB-story-content) :is(.hljs-title,.token.function,.nf) { color: var(--metro-yellow) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story-content, .NB-story-content) :is(.hljs-variable,.token.property,.na) { color: var(--metro-cyan) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story-content, .NB-story-content) :is(.token.class-name,.hljs-type,.nc) { color: #4ec9b0 !important; }
+
+/* Dashboard panels, discovery cards, briefing and account modules. */
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-module, .NB-module-content, .NB-module-content-header,
+ .NB-module-content-account-realtime, .NB-dashboard-story, .NB-dashboard-river,
+ .NB-feed-badge, .NB-add-site-card, .NB-trending-feed-card,
+ .NB-add-site-category-card, .NB-briefing-group-summary, .NB-briefing-onboarding-view) {
+  background: var(--metro-editor) !important;
+  color: var(--metro-text) !important;
+  border-color: var(--metro-divider) !important;
+  box-shadow: none !important;
+  border-radius: 3px !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-module-header, .NB-module h5, .NB-dashboard-header,
+ .NB-module-content-header, .NB-briefing-group-header) {
+  background: var(--metro-sidebar) !important;
+  color: var(--metro-bright) !important;
+  border-color: var(--metro-divider) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  box-shadow: none !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-module-content-subtitle, .NB-module-content p, .NB-feed-badge-tagline,
+ .NB-add-site-card-description, .NB-briefing-story-meta) { color: var(--metro-muted) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-module a, .NB-module-story-title, .NB-feed-badge-title, .NB-add-site-card-title) { color: var(--metro-text) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-module a:hover, .NB-briefing-story-title:hover) { color: var(--metro-link) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-module-manage .NB-menu-item, .NB-module-manage .NB-menu-manage-feed-info) { background: var(--metro-editor) !important; }
+
+/* Quick pick / command menu, popovers, tooltips. Preserve icon artwork. */
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-menu-manage-container, .NB-menu-manage, .NB-popover,
+ .NB-popover-content, .NB-filter-popover, .NB-style-popover, .NB-discover-popover,
+ .NB-menu-manage-arrow, .NB-popover-arrow, .ui-autocomplete, .tippy-tooltip) {
+  background-color: var(--metro-menu) !important;
+  background-image: none !important;
+  color: var(--metro-text) !important;
+  border-color: var(--metro-border) !important;
+  border-radius: 3px !important;
+  box-shadow: 0 8px 24px #0006 !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-menu-item, .NB-menu-manage-title, .NB-popover-section,
+ .NB-menu-manage-feed-info, .NB-menu-manage-site-info, .NB-popover-title) {
+  background-color: transparent !important;
+  color: var(--metro-text) !important;
+  border-color: var(--metro-divider) !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-menu-item:hover, .NB-menu-item.NB-hover, .ui-menu-item:hover) {
+  background-color: var(--metro-selection) !important;
+  color: #ffffff !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-menu-manage-subtitle, .NB-popover-label, .NB-popover-section-title) { color: var(--metro-muted) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-menu-separator, .NB-menu-separator-inverse, .NB-menu-separator-top) { background: var(--metro-border) !important; box-shadow: none !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-menu-item.NB-disabled, .NB-disabled) { color: var(--metro-disabled) !important; }
+
+/* All dialogs: account, preferences, trainer, statistics, notifications, sharing. */
+html.nb-metro-theme body.NB-body-main.NB-dark :is(#simplemodal-container, .simplemodal-wrap, .NB-modal,
+ .NB-modal-content, .NB-modal-section, .NB-tab, .NB-preference,
+ .NB-preferences-form, .NB-modal-feedchooser, .NB-modal-header) {
+  background-color: var(--metro-sidebar) !important;
+  background-image: none !important;
+  color: var(--metro-text) !important;
+  border-color: var(--metro-border) !important;
+  text-shadow: none !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark #simplemodal-container { border: 1px solid var(--metro-border) !important; border-radius: 4px !important; box-shadow: 0 12px 48px #0009 !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark #simplemodal-overlay { background: #000 !important; opacity: .55 !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-modal-title, .NB-modal h2, .NB-modal h3, .NB-modal h4, .NB-modal h5, .NB-modal legend) {
+  color: var(--metro-bright) !important;
+  border-color: var(--metro-border) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-modal-tabs, .NB-modal-submit) {
+  background: var(--metro-sidebar) !important;
+  border-color: var(--metro-border) !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark .NB-modal-tab {
+  background: #2d2d2d !important;
+  color: var(--metro-muted) !important;
+  border-color: var(--metro-divider) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark .NB-modal-tab.NB-active {
+  background: var(--metro-sidebar) !important;
+  color: var(--metro-bright) !important;
+  box-shadow: inset 0 2px var(--metro-blue) !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark .NB-preference { border-radius: 0 !important; border-bottom: 1px solid var(--metro-divider) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-preference-label, .NB-modal label, .NB-preference-options) { color: var(--metro-text) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-preference-sublabel, .NB-modal-subtitle, .NB-modal-description,
+ .NB-account-connected-empty, .NB-account-connected-heading, .NB-preference-stories-count) { color: var(--metro-muted) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-modal a:not(.NB-modal-submit-button), .NB-modal-link) { color: var(--metro-link) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :where(input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]):not([type=range]), textarea, select) {
+  background-color: var(--metro-input) !important;
+  background-image: none !important;
+  color: var(--metro-text) !important;
+  border: 1px solid var(--metro-border) !important;
+  border-radius: 2px !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  caret-color: #aeafad;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(input,textarea,select):focus { border-color: var(--metro-blue) !important; outline-color: var(--metro-blue) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(input,textarea)::placeholder { color: var(--metro-muted) !important; opacity: 1; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(input[type=checkbox],input[type=radio],input[type=range]) { accent-color: var(--metro-blue); }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-account-custom-css,.NB-account-custom-javascript) {
+  font-family: "SFMono-Regular", Consolas, monospace !important;
+  font-size: 12px !important;
+  line-height: 1.55 !important;
+  background: var(--metro-editor) !important;
+  tab-size: 2;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-modal-submit-button, .NB-modal-submit-green,
+ .NB-button, button, input[type=submit], input[type=button]) {
+  background-color: #0e639c !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+  border-radius: 2px !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  font-weight: 500 !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-modal-submit-button, .NB-button, button, input[type=submit]):hover:not(:disabled):not(.NB-disabled) { background-color: #1177bb !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-modal-submit-grey, .NB-modal-submit-cancel, .NB-account-connect-provider) { background: #3a3d41 !important; color: var(--metro-text) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark .NB-modal-submit-red { background: #5a1d1d !important; color: #f48771 !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(button:disabled,input:disabled,.NB-modal-submit-button.NB-disabled) { background: #333333 !important; color: var(--metro-disabled) !important; cursor: default; }
+
+/* Segmented controls and native action icons remain compact and recognizable. */
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.segmented-control, .NB-segmented-control, .NB-intelligence-slider) { background: transparent !important; border-color: var(--metro-border) !important; box-shadow: none !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.segmented-control li, .NB-segmented-control li,
+ .NB-intelligence-slider-control, .NB-task-button, .NB-feedbar-options, .NB-story-view) {
+  background-color: transparent !important;
+  color: var(--metro-text) !important;
+  border-color: transparent !important;
+  border-radius: 2px !important;
+  box-shadow: none !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.segmented-control li.NB-active, .NB-segmented-control li.NB-active,
+ .NB-intelligence-slider-control.NB-active, .NB-task-button.NB-active, .NB-story-view.NB-active) {
+  background-color: var(--metro-selection) !important;
+  color: #ffffff !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-task-button, .NB-feedbar-options, .NB-intelligence-slider-control):hover { background-color: var(--metro-hover) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-taskbar-container, .NB-feed-taskbar, .NB-story-taskbar, .NB-taskbar, .NB-splash-footer) {
+  background: var(--metro-sidebar) !important;
+  color: var(--metro-text) !important;
+  border-color: var(--metro-divider) !important;
+  box-shadow: none !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-taskbar-container,.NB-splash-footer) :is(a,button,.NB-intelligence-slider-control) { color: var(--metro-text) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark .NB-taskbar-container .NB-intelligence-slider-control.NB-active { background: var(--metro-selection-soft) !important; color: var(--metro-bright) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark .ui-layout-resizer { background: var(--metro-divider) !important; border-color: var(--metro-divider) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark .ui-layout-resizer:hover { background: var(--metro-blue) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-error,.NB-preference-error,.NB-modal-error) { color: var(--metro-red) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-success,.NB-manage-saved-message) { color: var(--metro-green) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-classifier-like,.NB-positive) { color: var(--metro-green) !important; }
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-classifier-dislike,.NB-negative) { color: var(--metro-red) !important; }
+@media (prefers-reduced-motion: reduce) {
+  html.nb-metro-theme body.NB-body-main.NB-dark :where([class*="NB-"]) { transition: none !important; }
+}
+
+/* Feed colors are identifiers in the favicon, rather than bright editor surfaces. */
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story-header-feed,
+ .NB-feed-story-header-feed .NB-feed-story-feed, .NB-feed-story-header-feed .feed_title) {
+  background: var(--metro-sidebar) !important;
+  color: var(--metro-cyan) !important;
+  border-color: var(--metro-divider) !important;
+  text-shadow: none !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-storytitles-feed-border-inner,
+ .NB-storytitles-feed-border-outer) {
+  background: var(--metro-divider) !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark .NB-story-title.NB-selected :is(
+ .NB-storytitles-feed-border-inner,.NB-storytitles-feed-border-outer) {
+  background: var(--metro-blue) !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-feed-story-sideoptions,
+ .NB-feed-story-header) button {
+  background: transparent !important;
+  color: var(--metro-muted) !important;
+}
+
+/* The theme owns font family; native size, density and line-height controls stay available. */
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-menu-manage-font,
+ .NB-options-font, .NB-options-feed-font, .NB-options-font-family,
+ .NB-popover-icon-control-feed-font, .NB-font-family-option, .NB-feed-font-option) {
+  display: none !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-story-title,.NB-story-title-split) {
+  border-radius: 0 !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark .NB-feed-story {
+  border-top-color: var(--metro-divider) !important;
+  border-bottom-color: var(--metro-divider) !important;
+}
+html.nb-metro-theme body.NB-body-main.NB-dark :is(.NB-splash-info, .NB-splash-info-inner,
+ .NB-splash-info .NB-splash-links, .NB-splash-info a) {
+  background-color: var(--metro-sidebar) !important;
+  color: var(--metro-text) !important;
+  border-color: var(--metro-divider) !important;
+}
+
+/* Metro Theme owns the app palette; hide native Light/Dark/Auto selectors and toggles. */
+html.nb-metro-theme body :is(.NB-menu-manage-theme, .NB-options-theme,
+ .NB-theme-option, .NB-theme-toggle, .NB-preference-theme,
+ .NB-popover-icon-control-theme, .NB-theme-selector) {
+  display: none !important;
+}
+
+/* Independent theme credit; the NewsBlur logo keeps its own layout and link. */
+html.nb-metro-theme .NB-splash-bottom::before {
+  content: "Metro Theme for NewsBlur v0.0.0";
+  position: absolute;
+  left: calc(var(--metro-footer-left, 0px) + 12px);
+  top: 0;
+  display: flex;
+  align-items: center;
+  height: 36px;
+  color: var(--metro-disabled) !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  line-height: 12px !important;
+  white-space: nowrap;
+}
+html.nb-metro-theme .NB-splash-bottom .NB-splash-links a {
+  padding-left: 8px !important;
+  padding-right: 4px !important;
+}
